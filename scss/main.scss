@@ -1,0 +1,55 @@
+// importing all the subfiles
+@import './reset';
+@import './variables';
+
+// function is used for calculation
+@function weight($weight-value){
+    @return map-get($font-weight, $weight-value)
+};
+
+// mixins are used for styling
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+// creating light theme using mixins
+@mixin theme($light-theme: true){
+    @if $light-theme {
+        background-color: lighten($primary-color, 100%);
+        color: darken($secondary-color, 100%);
+    }
+}
+
+.main {
+    @include flexCenter;
+    /* light theme */
+    @include theme(true);
+    /* light theme ends*/
+
+    width: 100% - 40%; //in css it's calc( 100% - 40% )
+
+    margin: 0 auto;
+    font-size: 20px;
+    /*difference between & and #{&}*/
+    #{&}__paragraph1 {
+        font-weight: weight(regular);
+        background-color: $primary-color;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+    &__paragraph2 {
+        font-weight: weight(medium);
+    }
+    // example of extending
+    #{&}__paragraph2 {
+
+        line-height: 1.5;
+        @extend .main__paragraph1;
+    }
+}
+

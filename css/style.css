@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* light theme */
+  background-color: white;
+  color: black;
+  /* light theme ends*/
+  width: 60%;
+  margin: 0 auto;
+  font-size: 20px;
+  /*difference between & and .main*/
+}
+.main .main__paragraph1, .main .main__paragraph2 {
+  font-weight: 400;
+  background-color: #272727;
+}
+.main .main__paragraph1:hover, .main .main__paragraph2:hover {
+  color: #ff652f;
+}
+.main__paragraph2 {
+  font-weight: 500;
+}
+.main .main__paragraph2 {
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=style.css.map */
